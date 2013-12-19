@@ -3,7 +3,6 @@
 use Validator as V;
 
 abstract class Validator {
-
     /**
      * Perform validation
      *
@@ -45,4 +44,4 @@ abstract class Validator {
     {
         return $this->validate($input, $this->updateRules);
     }
-}
+} 
