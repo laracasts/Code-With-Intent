@@ -18,20 +18,7 @@ class UserValidator extends Validator {
      * @var array
      */
     protected $updateRules = [
-        'email' => 'required|email'
+        'email' => 'required|email',
+        'password' => 'confirmed'
     ];
-
-    /**
-     * Validate for updating a user
-     *
-     * @param $input
-     *
-     * @return bool
-     */
-    public function validateForUpdate($input)
-    {
-        if ($input['password']) $this->updateRules['password'] = 'required|confirmed';
-
-        return $this->validate($input, $this->updateRules);
-    }
 }
