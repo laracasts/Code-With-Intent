@@ -1,5 +1,7 @@
 <?php
 
+use Acme\Validation\ValidationException;
+
 class BaseModel extends Eloquent {
 
     /**
@@ -24,6 +26,10 @@ class BaseModel extends Eloquent {
         if (class_exists($path))
         {
             App::make($path)->validateForUpdate($attributes);
+        }
+        else
+        {
+            throw new ValidationException('Validator class not found');
         }
 
         parent::update($attributes);
